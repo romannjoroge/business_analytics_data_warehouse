@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "generate": "drizzle-kit generate:pg --schema ./src/db/schema.ts --out=./src/db/migrations",
-    "migrate": "ts-node --esm src/db/migration.ts"
+    "generate": "drizzle-kit generate:pg",
+    "migrate": "ts-node --esm src/db/migration.ts",
+    "studio": "npx drizzle-kit studio"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/node": "^20.11.29",
     "drizzle-kit": "^0.20.14",
+    "pg": "^8.11.3",
     "tsup": "^8.0.2",
     "typescript": "^5.4.2"
   }
