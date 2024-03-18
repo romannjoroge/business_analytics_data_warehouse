@@ -1,0 +1,312 @@
+{
+  "id": "2cbd7772-c9c3-49f0-831f-ffc8ced923db",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "dim_city": {
+      "name": "dim_city",
+      "schema": "",
+      "columns": {
+        "city_id": {
+          "name": "city_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "city_name": {
+          "name": "city_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "state_name": {
+          "name": "state_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "dim_client": {
+      "name": "dim_client",
+      "schema": "",
+      "columns": {
+        "client_id": {
+          "name": "client_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "client_name": {
+          "name": "client_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "dim_date": {
+      "name": "dim_date",
+      "schema": "",
+      "columns": {
+        "transaction_date": {
+          "name": "transaction_date",
+          "type": "timestamp",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "year": {
+          "name": "year",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "month_number": {
+          "name": "month_number",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "year_month_number": {
+          "name": "year_month_number",
+          "type": "char(7)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "year_month_short": {
+          "name": "year_month_short",
+          "type": "char(8)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "month_name_short": {
+          "name": "month_name_short",
+          "type": "char(3)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "month_name_long": {
+          "name": "month_name_long",
+          "type": "char(9)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "day_of_week_number": {
+          "name": "day_of_week_number",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "day_of_week_short": {
+          "name": "day_of_week_short",
+          "type": "char(3)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quater": {
+          "name": "quater",
+          "type": "char(2)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "year_quater": {
+          "name": "year_quater",
+          "type": "char(7)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "week_number": {
+          "name": "week_number",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "dim_fire_insurance_products": {
+      "name": "dim_fire_insurance_products",
+      "schema": "",
+      "columns": {
+        "product_id": {
+          "name": "product_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "product_name": {
+          "name": "product_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "facts": {
+      "name": "facts",
+      "schema": "",
+      "columns": {
+        "billing_id": {
+          "name": "billing_id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "statement_account_no": {
+          "name": "statement_account_no",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "statement_date": {
+          "name": "statement_date",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "policy_number": {
+          "name": "policy_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "client_id": {
+          "name": "client_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "building_city_id": {
+          "name": "building_city_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "product_id": {
+          "name": "product_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "premium": {
+          "name": "premium",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "other_charges": {
+          "name": "other_charges",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "total_charges": {
+          "name": "total_charges",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "coverage_date_from": {
+          "name": "coverage_date_from",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "coverage_date_to": {
+          "name": "coverage_date_to",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "total_amount_paid": {
+          "name": "total_amount_paid",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "facts_statement_date_dim_date_transaction_date_fk": {
+          "name": "facts_statement_date_dim_date_transaction_date_fk",
+          "tableFrom": "facts",
+          "tableTo": "dim_date",
+          "columnsFrom": [
+            "statement_date"
+          ],
+          "columnsTo": [
+            "transaction_date"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "facts_client_id_dim_client_client_id_fk": {
+          "name": "facts_client_id_dim_client_client_id_fk",
+          "tableFrom": "facts",
+          "tableTo": "dim_client",
+          "columnsFrom": [
+            "client_id"
+          ],
+          "columnsTo": [
+            "client_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "facts_building_city_id_dim_city_city_id_fk": {
+          "name": "facts_building_city_id_dim_city_city_id_fk",
+          "tableFrom": "facts",
+          "tableTo": "dim_city",
+          "columnsFrom": [
+            "building_city_id"
+          ],
+          "columnsTo": [
+            "city_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "facts_product_id_dim_fire_insurance_products_product_id_fk": {
+          "name": "facts_product_id_dim_fire_insurance_products_product_id_fk",
+          "tableFrom": "facts",
+          "tableTo": "dim_fire_insurance_products",
+          "columnsFrom": [
+            "product_id"
+          ],
+          "columnsTo": [
+            "product_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

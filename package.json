@@ -3,17 +3,24 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate": "drizzle-kit generate:pg --schema ./src/db/schema.ts --out=./src/db/migrations",
+    "migrate": "ts-node --esm src/db/migration.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.2",
-    "postgres": "^3.4.3"
+    "postgres": "^3.4.3",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "drizzle-kit": "^0.20.14"
+    "@types/node": "^20.11.29",
+    "drizzle-kit": "^0.20.14",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
   }
 }
